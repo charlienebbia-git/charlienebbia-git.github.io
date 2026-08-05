@@ -36,9 +36,14 @@
   }
   .nav-inner{
     max-width:1080px;margin:0 auto;padding:14px 24px;
-    display:flex;align-items:center;gap:26px;
+    display:flex;align-items:center;gap:26px;flex-wrap:wrap;
   }
-  .logo{font-weight:800;font-size:17px;letter-spacing:-.01em}
+  .logo{
+    font-weight:800;font-size:17px;letter-spacing:-.01em;
+    background:none;border:none;padding:0;cursor:pointer;
+    font-family:inherit;color:var(--ink);transition:opacity .2s;
+  }
+  .logo:hover{opacity:.65}
   .logo .dot{color:var(--navy-3)}
   .nav-links{display:flex;gap:22px;font-size:14px;color:var(--muted)}
   .nav-links a{text-decoration:none;transition:color .2s}
@@ -235,7 +240,7 @@
     border-top:1px solid var(--line);padding-top:14px;
   }
   /* --- B. STAIRCASE --- */
-  .stair{display:flex;flex-direction:column;gap:10px;max-width:820px}
+  .stair{display:flex;flex-direction:column;gap:10px;max-width:820px;margin-top:46px}
   .stair-item{
     background:var(--bg-alt);border:1px solid var(--line);border-left:3px solid var(--navy-3);
     border-radius:0 var(--radius) var(--radius) 0;padding:18px 22px;transition:all .22s;
@@ -336,7 +341,16 @@
   .reveal.visible{opacity:1;transform:translateY(0)}
 
 
-  @media(max-width:720px){.nav-links{display:none}}
+  @media(max-width:720px){
+    .nav-inner{padding:10px 16px;gap:8px 14px}
+    .logo{font-size:15px}
+    .nav-cta .btn{padding:8px 16px;font-size:13px}
+    .nav-links{
+      order:3;width:100%;gap:16px;font-size:13px;
+      overflow-x:auto;white-space:nowrap;scrollbar-width:none;padding-bottom:2px;
+    }
+    .nav-links::-webkit-scrollbar{display:none}
+  }
 
 </style>
 </head>
@@ -344,7 +358,7 @@
 
 <nav>
   <div class="nav-inner">
-    <div class="logo">Carlos Nebbia<span class="dot">.</span></div>
+    <button class="logo" id="logoTop" aria-label="Back to top">Carlos Nebbia<span class="dot">.</span></button>
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#journey">Journey</a>
@@ -641,6 +655,10 @@
 </footer>
 
 <script>
+  // ---- Back to top ----
+  const goTop=()=>window.scrollTo({top:0,behavior:'smooth'});
+  document.getElementById('logoTop').addEventListener('click',goTop);
+
   // ---- logo marquee (companies + clients) ----
   const logos=["Gameloft","Etermax","Globant","Phoenix Games","Synaptic Labs","Midoki","Well Played Games","QB9","Disney","Nickelodeon","LEGO","Mattel","Warner Bros.","Banco Santander","Discovery Kids"];
   const mq=document.getElementById('mq');
