@@ -183,6 +183,7 @@
   .feature{
     background:var(--bg-alt);border:1px solid var(--line);border-radius:var(--radius);
     padding:30px;transition:all .25s;
+    display:flex;flex-direction:column;
   }
   .feature:hover{border-color:var(--navy-tint);box-shadow:0 16px 40px rgba(34,48,74,.08);transform:translateY(-3px)}
   .feature .kicker{
@@ -192,7 +193,7 @@
   .feature h3{font-size:19px;font-weight:800;letter-spacing:-.015em;margin-bottom:10px}
   .feature p{font-size:14.5px;color:var(--muted)}
   .feature .stat{
-    margin-top:18px;font-size:30px;font-weight:800;letter-spacing:-.02em;color:var(--navy);
+    margin-top:auto;padding-top:18px;font-size:30px;font-weight:800;letter-spacing:-.02em;color:var(--navy);
   }
   .feature .stat small{font-size:13px;color:var(--muted);font-weight:600;display:block;letter-spacing:0}
 
