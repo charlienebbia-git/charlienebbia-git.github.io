@@ -335,6 +335,14 @@
   .cta-sec .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
   .cta-sec .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
   .cta-trust{margin-top:26px;font-size:13.5px;color:#9FB0CA}
+  .toast{
+    position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);z-index:1000;
+    max-width:calc(100% - 32px);padding:12px 18px;border-radius:12px;
+    background:var(--navy-2);color:#fff;font-size:14px;line-height:1.4;text-align:center;
+    box-shadow:0 12px 30px rgba(0,0,0,.25);opacity:0;pointer-events:none;
+    transition:opacity .25s ease,transform .25s ease;
+  }
+  .toast.show{opacity:1;transform:translate(-50%,0)}
 
   footer{
     padding:36px 0;text-align:center;font-size:13px;color:var(--muted);
@@ -372,7 +380,7 @@
       <a href="#voices">Voices</a>
       <a href="#faq">FAQ</a>
     </div>
-    <div class="nav-cta"><a class="btn btn-primary" href="mailto:cnebbia82@gmail.com">Get in touch</a></div>
+    <div class="nav-cta"><a class="btn btn-primary" href="#contact">Get in touch</a></div>
   </div>
 </nav>
 
@@ -720,7 +728,7 @@
 </section>
 
 <!-- ===== CTA ===== -->
-<div class="cta-sec">
+<div class="cta-sec" id="contact">
   <div class="wrap">
     <h2>Ready to grow your product?</h2>
     <p class="sec-sub">One email. Fifteen minutes.</p>
@@ -819,6 +827,26 @@
     if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}
   }),{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // ---- email links: open mail app and copy address as a fallback ----
+  const EMAIL='cnebbia82@gmail.com';
+  const toast=document.createElement('div');
+  toast.className='toast';toast.setAttribute('role','status');toast.setAttribute('aria-live','polite');
+  document.body.appendChild(toast);
+  let toastTimer;
+  function showToast(msg){
+    toast.textContent=msg;toast.classList.add('show');
+    clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),3500);
+  }
+  document.querySelectorAll('a[href^="mailto:"]').forEach(a=>{
+    a.addEventListener('click',()=>{
+      if(navigator.clipboard&&window.isSecureContext){
+        navigator.clipboard.writeText(EMAIL)
+          .then(()=>showToast('Email copied: '+EMAIL+'. If your mail app did not open, just paste it.'))
+          .catch(()=>{});
+      }
+    });
+  });
 </script>
 </body>
 </html>
