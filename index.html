@@ -261,6 +261,81 @@
     .stair .stair-item{margin-left:0 !important}
   }
 
+  /* ===== A/B TESTS ===== */
+  .ab-note{
+    margin-top:18px;display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;
+    font-size:13px;font-weight:600;color:var(--navy-2);
+    background:var(--navy-soft);border:1px solid var(--navy-tint);border-radius:100px;padding:7px 16px;
+  }
+  .ab-tabs{display:flex;flex-wrap:wrap;gap:10px;margin:36px 0 22px}
+  .ab-exp{display:none;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:34px 34px 30px}
+  .ab-exp.active{display:block;animation:abIn .35s ease}
+  @keyframes abIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .ab-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:flex-start}
+  .ab-head .k{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--navy-3)}
+  .ab-head h3{font-size:clamp(22px,3vw,30px);font-weight:800;letter-spacing:-.02em;margin-top:6px;max-width:640px;line-height:1.2}
+  .verdict{font-size:12.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+    padding:8px 14px;border-radius:100px;background:var(--navy);color:#fff;white-space:nowrap}
+  .ab-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:26px}
+  .ab-kpi{background:var(--bg-alt);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+  .ab-kpi .v{font-size:26px;font-weight:800;letter-spacing:-.02em;color:var(--navy)}
+  .ab-kpi .v.warn{color:#9A6B00}
+  .ab-kpi .l{font-size:12.5px;color:var(--muted);font-weight:600;margin-top:2px}
+  .ab-stage{margin-top:38px;padding-top:30px;border-top:1px solid var(--line)}
+  .ab-stage .sk{font-family:ui-monospace,monospace;font-size:12px;font-weight:700;color:var(--navy-3)}
+  .ab-stage h4{font-size:20px;font-weight:800;letter-spacing:-.015em;margin:4px 0 10px}
+  .ab-stage > p{font-size:15px;color:var(--muted);max-width:760px}
+  .ab-stage > p b{color:var(--ink)}
+  .ab-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px;margin-top:20px;align-items:start}
+  .ab-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:4px}
+  .ab-list li{font-size:14.5px;color:var(--ink);line-height:1.55;padding-left:18px;position:relative}
+  .ab-list li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--navy-3)}
+  .ab-list li span{color:var(--muted)}
+  .shots{display:flex;flex-wrap:wrap;gap:18px;margin-top:20px}
+  .shot{flex:1 1 160px;max-width:230px;margin:0}
+  .shot img{width:100%;display:block;border-radius:22px;border:1px solid var(--line);
+    box-shadow:0 14px 34px rgba(34,48,74,.16);cursor:zoom-in;transition:transform .2s}
+  .shot img:hover{transform:translateY(-3px)}
+  .shot figcaption{font-size:12.5px;color:var(--muted);margin-top:10px;line-height:1.45}
+  .shot figcaption b{color:var(--ink);display:block;font-size:13px}
+  .funnel{display:flex;flex-direction:column;gap:10px}
+  .f-row .f-top{display:flex;justify-content:space-between;font-size:13.5px;font-weight:700;margin-bottom:5px;gap:10px}
+  .f-row .f-top span:last-child{color:var(--navy-2);white-space:nowrap}
+  .f-bar{height:12px;border-radius:100px;background:var(--navy-soft);overflow:hidden}
+  .f-bar i{display:block;height:100%;border-radius:100px;background:linear-gradient(90deg,var(--navy),var(--navy-3))}
+  .f-lost{font-size:12px;color:#9A6B00;font-weight:700;margin-top:4px}
+  .hyp{background:var(--navy);color:#fff;border-radius:var(--radius);padding:24px 26px;margin-top:18px;max-width:820px}
+  .hyp p{font-size:16px;line-height:1.6;color:#E3E9F3}
+  .hyp b{color:#E2C46B;letter-spacing:.04em}
+  .tbl-wrap{overflow-x:auto;margin-top:16px;border:1px solid var(--line);border-radius:14px}
+  .ab-tbl{width:100%;border-collapse:collapse;font-size:14px;min-width:560px}
+  .ab-tbl.sm{min-width:0}
+  .ab-tbl.sm th{white-space:normal}
+  .ab-tbl th{background:var(--bg-alt);text-align:left;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--navy-3);padding:11px 14px;white-space:nowrap}
+  .ab-tbl td{padding:11px 14px;border-top:1px solid var(--line);color:var(--ink);vertical-align:top}
+  .ab-tbl td.num{white-space:nowrap;font-variant-numeric:tabular-nums}
+  .tag{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.04em;padding:3px 10px;border-radius:100px;white-space:nowrap}
+  .tag.ok{background:#E6F2EA;color:#1F6B3A}
+  .tag.warn{background:#FBF1D9;color:#8A5E00}
+  .tag.info{background:var(--navy-soft);color:var(--navy-2)}
+  .ab-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:18px}
+  .ab-step{background:var(--bg-alt);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+  .ab-step .n{font-size:12px;font-weight:800;color:var(--navy-3)}
+  .ab-step h5{font-size:15px;font-weight:800;margin:4px 0 4px;letter-spacing:-.01em}
+  .ab-step p{font-size:13px;color:var(--muted);line-height:1.5}
+  .ab-punch{margin-top:30px;font-size:16px;font-weight:700;color:var(--navy-2);border-top:1px solid var(--line);padding-top:18px}
+  .ab-foot{margin-top:14px;font-size:12.5px;color:var(--muted)}
+  .lightbox{position:fixed;inset:0;z-index:1100;background:rgba(10,16,30,.86);display:none;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
+  .lightbox.on{display:flex}
+  .lightbox img{max-height:92vh;max-width:100%;border-radius:24px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+  @media(max-width:720px){
+    .ab-exp{padding:24px 18px 22px}
+    .shot{flex:0 1 calc(50% - 9px);max-width:none}
+    .ab-tbl.sm{font-size:13px}
+    .ab-tbl.sm th,.ab-tbl.sm td{padding:9px 8px}
+    .ab-tbl.sm th{font-size:10.5px;letter-spacing:.03em}
+  }
+
   /* ===== TIMELINE ===== */
   .steps{margin-top:44px;display:flex;flex-direction:column;gap:14px}
   .step{
@@ -376,6 +451,7 @@
       <a href="#about">About</a>
       <a href="#journey">Journey</a>
       <a href="#method">Method</a>
+      <a href="#abtests">A/B Tests</a>
       <a href="#toolkit">Toolkit</a>
       <a href="#voices">Voices</a>
       <a href="#faq">FAQ</a>
@@ -519,7 +595,7 @@
         <div class="kicker">Full lifecycle</div>
         <h3>Zero to one, or a second life</h3>
         <p>From inception to global launch, and from launch to reviving products others had written off. Every stage, aligning teams and executives along the way.</p>
-        <div class="stat">19 yrs<small>QA → Production → Product</small></div>
+        <div class="stat">20 yrs<small>QA → Production → Product</small></div>
       </div>
     </div>
   </div>
@@ -569,7 +645,7 @@
   <div class="wrap">
     <div class="eyebrow reveal">How I work</div>
     <h2 class="reveal">One loop, any environment.</h2>
-    <p class="sec-sub reveal">Nineteen years across products and categories taught me that the value isn't in the industry knowledge; it's in the process that produces it. This is the loop I run on everything, from a broken funnel to an app that doesn't exist yet.</p>
+    <p class="sec-sub reveal">Twenty years across products and categories taught me that the value isn't in the industry knowledge; it's in the process that produces it. This is the loop I run on everything, from a broken funnel to an app that doesn't exist yet.</p>
 
     <div class="stair" id="stairList"></div>
     <div class="stair-loop"><span>↺ restart with what you learned</span><span class="ln"></span></div>
@@ -618,6 +694,164 @@
   </div>
 </section>
 
+
+<!-- ===== A/B TESTS ===== -->
+<section id="abtests">
+  <div class="wrap">
+    <div class="eyebrow reveal">A/B tests</div>
+    <h2 class="reveal">A/B tests, from first signal to final decision.</h2>
+    <p class="sec-sub reveal">One experiment at a time, end to end: what I observed, why I expected the change to work, how the test was designed, how I read it and what I decided.</p>
+    <div class="ab-note reveal">Fictional product · Simulated data · Built to show how I work without disclosing any employer's numbers</div>
+
+    <div class="ab-tabs reveal" id="abTabs"></div>
+
+    <!-- ===== EXPERIMENT 01 ===== -->
+    <article class="ab-exp active reveal" id="ab1" data-tab="01 · Paywall redesign">
+      <div class="ab-head">
+        <div>
+          <div class="k">Experiment 01 · Keel, an AI coach subscription app (fictional)</div>
+          <h3>From a two-step shop to a one-screen paywall with the trial pre-selected</h3>
+        </div>
+        <span class="verdict">Shipped · with follow-up</span>
+      </div>
+      <div class="ab-kpis">
+        <div class="ab-kpi"><div class="v">+15.5%</div><div class="l">Start rate (primary)</div></div>
+        <div class="ab-kpi"><div class="v">+4.4%</div><div class="l">Paid users per view (ship metric)</div></div>
+        <div class="ab-kpi"><div class="v">+9.6%</div><div class="l">Revenue per view (directional)</div></div>
+        <div class="ab-kpi"><div class="v warn">−3.1pp</div><div class="l">Trial to paid (the catch)</div></div>
+      </div>
+
+      <!-- Context -->
+      <div class="ab-stage">
+        <div class="sk">Context</div>
+        <h4>A hard paywall at the end of onboarding</h4>
+        <p><b>Keel</b> turns personal goals into short daily sessions with an AI coach. Nobody uses it without a plan: <b>$12.99 a month, $29.99 a quarter, or $59.99 a year with a 7-day free trial</b>. About 2,480 people a day reach the paywall, and 14.5% of them start a plan.</p>
+      </div>
+
+      <!-- Observe -->
+      <div class="ab-stage">
+        <div class="sk">Step 1 · Observe</div>
+        <h4>Where people leave, and why</h4>
+        <p>The current shop takes two screens to reach a price. Screen one lists seven features and three buttons, but no price. Screen two offers three plans with three equal buttons and no default.</p>
+        <div class="ab-cols">
+          <div>
+            <div class="shots">
+              <figure class="shot"><img src="ab/keel/1_current_shop.jpg" alt="Current shop screen with seven feature cards and no price" loading="lazy"><figcaption><b>Today · screen 1</b>Seven features, three buttons, four exits, no price.</figcaption></figure>
+              <figure class="shot"><img src="ab/keel/2_current_plans.jpg" alt="Current plans screen with three equal subscribe buttons" loading="lazy"><figcaption><b>Today · screen 2</b>Three plans, three buttons, no default.</figcaption></figure>
+            </div>
+          </div>
+          <div>
+            <div class="funnel">
+              <div class="f-row"><div class="f-top"><span>See the shop</span><span>10,000</span></div><div class="f-bar"><i style="width:100%"></i></div></div>
+              <div class="f-row"><div class="f-top"><span>Reach the plans screen</span><span>4,800</span></div><div class="f-bar"><i style="width:48%"></i></div><div class="f-lost">5,200 leave on screen 1, the biggest leak</div></div>
+              <div class="f-row"><div class="f-top"><span>Tap a subscribe button</span><span>2,160</span></div><div class="f-bar"><i style="width:21.6%"></i></div><div class="f-lost">2,640 leave the plans screen</div></div>
+              <div class="f-row"><div class="f-top"><span>Start a plan</span><span>1,447 · 14.5%</span></div><div class="f-bar"><i style="width:14.5%"></i></div></div>
+            </div>
+            <ul class="ab-list" style="margin-top:22px">
+              <li><b>Nobody reads the features.</b> <span>61% never scroll past the third card. People who leave stay a median of 4 seconds.</span></li>
+              <li><b>The first button confuses.</b> <span>"Connect" gets 9% of taps; the two "See plans" buttons get 39%.</span></li>
+              <li><b>The choice stalls.</b> <span>38% of plans-screen leavers switch between cards first: hesitation, not rejection.</span></li>
+              <li><b>The price is a mystery.</b> <span>4 of 6 interviewees: "I didn't know what it cost."</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Assume + Hypothesize -->
+      <div class="ab-stage">
+        <div class="sk">Step 2 · Assume and hypothesize</div>
+        <h4>The path to the price is the problem, not the price</h4>
+        <p>People don't leave because Keel costs too much. They leave because the price is two screens away, the value is never stated, and the final step asks them to choose between three equal buttons.</p>
+        <div class="hyp">
+          <p><b>IF</b> the two-step shop becomes one benefit-led screen with the yearly trial pre-selected, <b>THEN</b> start rate rises by at least 10%, <b>BECAUSE</b> one step disappears, a default replaces a three-way choice, value comes before price, and the risk is answered next to the button ("$0.00 today, reminder before it renews").</p>
+        </div>
+        <div class="ab-cols">
+          <div>
+            <p style="font-size:14.5px;color:var(--muted)"><b style="color:var(--ink)">Why +10%, built from the funnel.</b> If the new screen wins back a small share of the people we lose today, the lift lands here:</p>
+            <div class="tbl-wrap"><table class="ab-tbl sm">
+              <tr><th>Scenario</th><th>Screen 1 won back</th><th>Plans won back</th><th>Lift</th></tr>
+              <tr><td>Conservative</td><td class="num">1 in 40</td><td class="num">1 in 20</td><td class="num">+9%</td></tr>
+              <tr><td>Expected</td><td class="num">1 in 25</td><td class="num">1 in 12</td><td class="num">+14%</td></tr>
+              <tr><td>Optimistic</td><td class="num">1 in 15</td><td class="num">1 in 8</td><td class="num">+22%</td></tr>
+            </table></div>
+          </div>
+          <div>
+            <p style="font-size:14.5px;color:var(--muted)"><b style="color:var(--ink)">Risks named before launch.</b></p>
+            <ul class="ab-list">
+              <li><b>Weaker trials.</b> <span>An easier trial can attract people who were never going to pay.</span></li>
+              <li><b>Plan mix shift.</b> <span>Monthly and quarterly become a detour behind "See all plans".</span></li>
+              <li><b>A bundled change.</b> <span>If it wins, we know the package works, not which part. A later test isolates the framing.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Design -->
+      <div class="ab-stage">
+        <div class="sk">Step 3 · Design</div>
+        <h4>One test arm, one framing held back, one plans screen</h4>
+        <div class="shots">
+          <figure class="shot"><img src="ab/keel/3_proposal_2A.jpg" alt="Proposal 2A, guided action paywall" loading="lazy"><figcaption><b>2A · the test arm</b>One screen, four benefits, yearly trial pre-selected, one button.</figcaption></figure>
+          <figure class="shot"><img src="ab/keel/4_proposal_2B.jpg" alt="Proposal 2B, first-week timeline paywall" loading="lazy"><figcaption><b>2B · held for the next test</b>Identical to 2A except the value block, so the next test isolates framing.</figcaption></figure>
+          <figure class="shot"><img src="ab/keel/5_proposal_2C.jpg" alt="Proposal 2C, redesigned plans screen" loading="lazy"><figcaption><b>2C · not a test arm</b>The redesigned plans screen behind "See all plans".</figcaption></figure>
+        </div>
+        <div class="ab-steps">
+          <div class="ab-step"><div class="n">Who</div><h5>New installs only</h5><p>Nobody sees both versions. 50/50 split, checked daily for imbalance.</p></div>
+          <div class="ab-step"><div class="n">How many</div><h5>17,000+ per arm</h5><p>Enough to detect +10% on start rate (9,700 needed) and to judge paid users per view.</p></div>
+          <div class="ab-step"><div class="n">How long</div><h5>14 days, read on day 24</h5><p>Two full weekly cycles, then time for 7-day trials to convert. No early calls.</p></div>
+          <div class="ab-step"><div class="n">Segments</div><h5>Agreed upfront</h5><p>Platform, country tier, paid vs organic. Nothing added after the fact.</p></div>
+        </div>
+        <p style="margin-top:22px;font-size:14.5px;color:var(--muted);max-width:760px"><b style="color:var(--ink)">Why start rate can't decide alone.</b> If trial to paid drops 5 points, it fully cancels a 10% gain in starts. So start rate gets the early read, and <b style="color:var(--ink)">paid users per view</b> makes the ship call.</p>
+        <div class="tbl-wrap"><table class="ab-tbl">
+          <tr><th>Outcome</th><th>Condition, agreed before launch</th><th>Action</th></tr>
+          <tr><td><span class="tag ok">Ship</span></td><td>Start rate up significantly; paid users per view not worse by more than 0.5pp; no data issues</td><td>Staged rollout with a holdout</td></tr>
+          <tr><td><span class="tag info">Iterate</span></td><td>Starts up, but trial quality or plan mix flags</td><td>Keep the flow, fix what the flag points at</td></tr>
+          <tr><td><span class="tag warn">Kill</span></td><td>Start rate flat or down, and the results rule out +10%</td><td>Back to observing: value or price, not friction</td></tr>
+          <tr><td><span class="tag info">Extend</span></td><td>Traffic below plan</td><td>Run to the pre-set maximum of 21 days, then decide</td></tr>
+        </table></div>
+      </div>
+
+      <!-- Read -->
+      <div class="ab-stage">
+        <div class="sk">Step 4 · Read</div>
+        <h4>The hypothesis held, and so did the risk</h4>
+        <p>17,388 users in control, 17,332 in 2A. The split was clean (p = 0.76).</p>
+        <div class="tbl-wrap"><table class="ab-tbl">
+          <tr><th>Metric</th><th>Control</th><th>2A</th><th>Change</th><th>95% range</th><th>Verdict</th></tr>
+          <tr><td><b>Start rate</b> (primary)</td><td class="num">14.5%</td><td class="num">16.7%</td><td class="num">+15.5%</td><td class="num">+10% to +21%</td><td><span class="tag ok">Significant</span></td></tr>
+          <tr><td><b>Paid users per view</b> (ship)</td><td class="num">8.21%</td><td class="num">8.57%</td><td class="num">+4.4%</td><td class="num">−0.22 to +0.94pp</td><td><span class="tag ok">Not worse</span></td></tr>
+          <tr><td>First payment revenue per view</td><td class="num">$3.08</td><td class="num">$3.37</td><td class="num">+9.6%</td><td class="num">directional</td><td><span class="tag ok">Up</span></td></tr>
+          <tr><td>Trial to paid</td><td class="num">38.1%</td><td class="num">35.0%</td><td class="num">−3.1pp</td><td class="num">−6.1 to −0.1pp</td><td><span class="tag warn">Flag</span></td></tr>
+          <tr><td>Trials cancelled within 24h</td><td class="num">16.0%</td><td class="num">20.5%</td><td class="num">+4.5pp</td><td class="num">+2.1 to +6.9pp</td><td><span class="tag warn">Flag</span></td></tr>
+          <tr><td>Yearly share of starts</td><td class="num">70%</td><td class="num">75%</td><td class="num">+5pp</td><td class="num">n/a</td><td><span class="tag ok">Good</span></td></tr>
+          <tr><td>Refund requests</td><td class="num">1.2%</td><td class="num">1.3%</td><td class="num">no change</td><td class="num">n/a</td><td><span class="tag ok">Pass</span></td></tr>
+        </table></div>
+        <ul class="ab-list" style="margin-top:18px">
+          <li><b>The lift landed where the funnel said it would:</b> <span>+15.5%, between the expected and optimistic scenarios.</span></li>
+          <li><b>The risk named upfront showed up:</b> <span>easier trials brought in some people who would never pay.</span></li>
+          <li><b>Still a net win:</b> <span>more paying users per view, and more revenue per view as people shifted to the yearly plan.</span></li>
+          <li><b>Segments:</b> <span>iOS +18%, Android +10%. Both positive; Android worth watching.</span></li>
+        </ul>
+      </div>
+
+      <!-- Decide -->
+      <div class="ab-stage">
+        <div class="sk">Step 5 · Decide</div>
+        <h4>Ship, keep a holdout, and test the fix</h4>
+        <div class="ab-steps">
+          <div class="ab-step"><div class="n">Weeks 1 to 2</div><h5>Staged rollout</h5><p>25%, then 50%, then 100%, watching the guardrails at each stage.</p></div>
+          <div class="ab-step"><div class="n">30 days</div><h5>5% holdout</h5><p>A small group keeps the old shop, to confirm revenue per view at day 30.</p></div>
+          <div class="ab-step"><div class="n">Next</div><h5>Test 2B on top of 2A</h5><p>The first-week timeline sets expectations for trial users. Primary metric: trial to paid.</p></div>
+          <div class="ab-step"><div class="n">Reverse if</div><h5>Pre-agreed triggers</h5><p>Paid users per view below control at 50%, or 24h cancellations above 25%.</p></div>
+        </div>
+        <p class="ab-punch">The win wasn't the +15%. It was knowing which number to trust, and what to fix next.</p>
+        <p class="ab-foot">Caveat: first payment revenue undervalues monthly plans, which renew every month. The real test of yearly plans is renewal at month 12; the holdout keeps that question open.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Screen preview"><img alt=""></div>
 
 <!-- ===== TOOLKIT ===== -->
 <section id="toolkit">
@@ -804,14 +1038,36 @@
      </div>`).join('');
 
   // ---- Method case tabs ----
-  document.querySelectorAll('.case-tab').forEach(t=>{
+  document.querySelectorAll('#method .case-tab').forEach(t=>{
     t.addEventListener('click',()=>{
-      document.querySelectorAll('.case-tab').forEach(x=>x.classList.remove('active'));
-      document.querySelectorAll('.case').forEach(c=>c.classList.remove('active'));
+      document.querySelectorAll('#method .case-tab').forEach(x=>x.classList.remove('active'));
+      document.querySelectorAll('#method .case').forEach(c=>c.classList.remove('active'));
       t.classList.add('active');
       document.getElementById(t.dataset.case).classList.add('active');
     });
   });
+
+  // ---- A/B tests: one experiment at a time ----
+  const abExps=[...document.querySelectorAll('.ab-exp')];
+  const abTabs=document.getElementById('abTabs');
+  abTabs.innerHTML=abExps.map((e,i)=>`<button class="case-tab${i===0?' active':''}" data-ab="${e.id}">${e.dataset.tab}</button>`).join('');
+  abTabs.querySelectorAll('button').forEach(b=>{
+    b.addEventListener('click',()=>{
+      abTabs.querySelectorAll('button').forEach(x=>x.classList.remove('active'));
+      abExps.forEach(e=>e.classList.remove('active'));
+      b.classList.add('active');
+      const ex=document.getElementById(b.dataset.ab); ex.classList.add('active','visible');
+      document.getElementById('abtests').scrollIntoView({behavior:'smooth'});
+    });
+  });
+
+  // ---- Screen lightbox ----
+  const lb=document.getElementById('lightbox'), lbImg=lb.querySelector('img');
+  document.querySelectorAll('.shot img').forEach(img=>{
+    img.addEventListener('click',()=>{lbImg.src=img.src;lbImg.alt=img.alt;lb.classList.add('on');});
+  });
+  lb.addEventListener('click',()=>lb.classList.remove('on'));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on');});
 
   // ---- FAQ accordion ----
   document.querySelectorAll('.qa button').forEach(b=>{
